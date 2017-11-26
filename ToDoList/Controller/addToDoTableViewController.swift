@@ -9,6 +9,8 @@
 import UIKit
 
 class addToDoTableViewController: UITableViewController {
+    // Initiate variable for hidden datepicker.
+    var isPickerHidden = true
     // Initiate outletes for the view
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var isCompleteButton: UIButton!
@@ -29,6 +31,11 @@ class addToDoTableViewController: UITableViewController {
     @IBAction func isCompleteButtonTapped(_ sender: UIButton) {
         isCompleteButton.isSelected = !isCompleteButton.isSelected
     }
+    // action for the datepicker.
+    @IBAction func datePickerChanged(_ sender: UIDatePicker) {
+        updateDueDateLabel(date: dueDatePuckerView.date)
+    }
+    
     // Helper method to update the save button.
     // If text is in titleTextField button isEnabled.
     func updateSaveButtonState() {
@@ -36,14 +43,47 @@ class addToDoTableViewController: UITableViewController {
         saveButton.isEnabled = !text.isEmpty
     }
     
+    // Helper method to update the date label
+    func updateDueDateLabel(date: Date) {
+        dueDateLabel.text = ToDo.dueDateFormatter.string(from: date)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        dueDatePuckerView.date = Date().addingTimeInterval(24*60*60)
+        updateDueDateLabel(date: dueDatePuckerView.date)
         updateSaveButtonState()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let normalCellHeight = CGFloat(44)
+        let largeCellHeight = CGFloat(200)
+        
+        switch (indexPath) {
+        case [1,0]: // Due Date Cell
+            return isPickerHidden ? normalCellHeight : largeCellHeight
+        case [2,0]: // Notes Cell
+            return largeCellHeight
+        default: return normalCellHeight
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch (indexPath) {
+        case [1,0]:
+            isPickerHidden = !isPickerHidden
+            
+            dueDateLabel.textColor = isPickerHidden ? .black : tableView.tintColor
+            
+            tableView.beginUpdates()
+            tableView.endUpdates()
+        default: break
+        }
     }
 
     override func didReceiveMemoryWarning() {

@@ -26,10 +26,10 @@ struct ToDo {
         return [todo1, todo2, todo3]
     }
     
-//    init(title: String, isComplete: Bool, dueDate: Date, notes: String?) {
-//        self.title = title
-//        self.isComplete = isComplete
-//        self.dueDate = dueDate
-//        self.notes = notes
-//    }
+    static let dueDateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+        return formatter
+    }()
 }

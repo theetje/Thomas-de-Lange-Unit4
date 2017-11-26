@@ -127,6 +127,9 @@
                                                     <date key="date" timeIntervalSinceReferenceDate="533396835.23104203">
                                                         <!--2017-11-26 13:47:15 +0000-->
                                                     </date>
+                                                    <connections>
+                                                        <action selector="datePickerChanged:" destination="mDD-jZ-dh9" eventType="primaryActionTriggered" id="GHd-Wu-e8k"/>
+                                                    </connections>
                                                 </datePicker>
                                             </subviews>
                                             <constraints>
