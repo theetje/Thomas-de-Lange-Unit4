@@ -48,7 +48,7 @@
         <!--New ToDo-->
         <scene sceneID="SQL-Ak-RXz">
             <objects>
-                <tableViewController id="mDD-jZ-dh9" sceneMemberID="viewController">
+                <tableViewController id="mDD-jZ-dh9" customClass="addToDoTableViewController" customModule="ToDoList" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="JhZ-Ht-s3O">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -68,6 +68,10 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="returnPressed:" destination="mDD-jZ-dh9" eventType="primaryActionTriggered" id="fAY-zd-SGc"/>
+                                                        <action selector="textEditingChanged:" destination="mDD-jZ-dh9" eventType="editingChanged" id="8fj-f2-LVK"/>
+                                                    </connections>
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdR-mE-ZOa">
                                                     <rect key="frame" x="4" y="3" width="36" height="36"/>
@@ -78,6 +82,9 @@
                                                     <state key="normal" image="Unchecked"/>
                                                     <state key="disabled" image="Unchecked"/>
                                                     <state key="selected" image="Checked"/>
+                                                    <connections>
+                                                        <action selector="isCompleteButtonTapped:" destination="mDD-jZ-dh9" eventType="touchUpInside" id="Jrt-Nf-FLW"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -179,6 +186,14 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="dueDateLabel" destination="wcO-do-b9j" id="oNo-aT-5SF"/>
+                        <outlet property="dueDatePuckerView" destination="K6F-5X-g2L" id="p35-WR-yNu"/>
+                        <outlet property="isCompleteButton" destination="tdR-mE-ZOa" id="4H6-4w-mPA"/>
+                        <outlet property="notesTextView" destination="3Mk-VL-erq" id="obU-ew-vVt"/>
+                        <outlet property="saveButton" destination="86m-td-zyf" id="ARH-cl-g2l"/>
+                        <outlet property="titleTextField" destination="3Tu-gY-Kbc" id="bs2-UG-pKl"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="16k-YZ-K8S" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="BVd-Bh-jV4" userLabel="Exit" sceneMemberID="exit"/>
