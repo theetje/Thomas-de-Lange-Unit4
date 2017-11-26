@@ -11,7 +11,15 @@ import UIKit
 class ToDoListTableViewController: UITableViewController {
     // Make a path to unwind to.
     @IBAction func unwindToDoList(segue: UIStoryboardSegue) {
+        guard segue.identifier == "saveUnwind" else { return }
+        let sourceViewController = segue.source as! addToDoTableViewController
         
+        if let todo = sourceViewController.todo {
+            let newIndexPath = IndexPath(row: todos.count, section: 0)
+            
+            todos.append(todo)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
     }
     
     // empty array of model objects
