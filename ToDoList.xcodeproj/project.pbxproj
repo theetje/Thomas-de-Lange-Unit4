@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E94CA11E1FCB0E2E00C0F52F /* addToDoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94CA11D1FCB0E2E00C0F52F /* addToDoTableViewController.swift */; };
+		E94CA1221FCB28BD00C0F52F /* ToDoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94CA1211FCB28BD00C0F52F /* ToDoCell.swift */; };
 		E9511E821FCA094700F25F76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9511E811FCA094700F25F76 /* AppDelegate.swift */; };
 		E9511E871FCA094700F25F76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9511E851FCA094700F25F76 /* Main.storyboard */; };
 		E9511E891FCA094700F25F76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9511E881FCA094700F25F76 /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		E94CA11D1FCB0E2E00C0F52F /* addToDoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addToDoTableViewController.swift; sourceTree = "<group>"; };
+		E94CA1211FCB28BD00C0F52F /* ToDoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoCell.swift; sourceTree = "<group>"; };
 		E9511E7E1FCA094700F25F76 /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9511E811FCA094700F25F76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9511E861FCA094700F25F76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				E9511EB31FCA0CF600F25F76 /* ToDoListTableViewController.swift */,
+				E94CA1211FCB28BD00C0F52F /* ToDoCell.swift */,
 				E94CA11D1FCB0E2E00C0F52F /* addToDoTableViewController.swift */,
 			);
 			path = Controller;
@@ -293,6 +296,7 @@
 				E9511EB11FCA0B8E00F25F76 /* ToDo.swift in Sources */,
 				E94CA11E1FCB0E2E00C0F52F /* addToDoTableViewController.swift in Sources */,
 				E9511EB41FCA0CF600F25F76 /* ToDoListTableViewController.swift in Sources */,
+				E94CA1221FCB28BD00C0F52F /* ToDoCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

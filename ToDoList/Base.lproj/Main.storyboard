@@ -19,14 +19,44 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToDoCellIdentifier" id="EDT-OQ-gCL">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToDoCellIdentifier" id="EDT-OQ-gCL" customClass="ToDoCell" customModule="ToDoList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EDT-OQ-gCL" id="cWI-GU-qaV">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6VI-zp-Oav">
+                                            <rect key="frame" x="3" y="0.0" width="36" height="36"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="36" id="6PK-gJ-Sfu"/>
+                                                <constraint firstAttribute="height" constant="36" id="6hq-Sz-cV9"/>
+                                            </constraints>
+                                            <state key="normal" image="Unchecked"/>
+                                            <state key="disabled" image="Unchecked"/>
+                                            <state key="selected" image="Checked"/>
+                                            <connections>
+                                                <action selector="isCompleteButtonTapped:" destination="mDD-jZ-dh9" eventType="touchUpInside" id="QOf-8k-a79"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXP-Wy-kns">
+                                            <rect key="frame" x="47" y="11.5" width="320" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="6VI-zp-Oav" firstAttribute="top" secondItem="cWI-GU-qaV" secondAttribute="top" id="Wif-n6-MIO"/>
+                                        <constraint firstItem="HXP-Wy-kns" firstAttribute="centerY" secondItem="cWI-GU-qaV" secondAttribute="centerY" id="c6N-zp-JLo"/>
+                                        <constraint firstItem="HXP-Wy-kns" firstAttribute="trailing" secondItem="cWI-GU-qaV" secondAttribute="trailingMargin" constant="8" id="dsN-TI-Ig6"/>
+                                        <constraint firstItem="HXP-Wy-kns" firstAttribute="leading" secondItem="6VI-zp-Oav" secondAttribute="trailing" constant="8" id="pHm-7E-xXV"/>
+                                        <constraint firstItem="6VI-zp-Oav" firstAttribute="leading" secondItem="cWI-GU-qaV" secondAttribute="leading" constant="3" id="v9B-8h-Mv1"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="isCompleteButton" destination="6VI-zp-Oav" id="rc4-dC-bXp"/>
+                                    <outlet property="titleLabel" destination="HXP-Wy-kns" id="Gyc-eA-Nca"/>
                                     <segue destination="mDD-jZ-dh9" kind="show" identifier="showDetails" id="4md-Zr-c8z"/>
                                 </connections>
                             </tableViewCell>
