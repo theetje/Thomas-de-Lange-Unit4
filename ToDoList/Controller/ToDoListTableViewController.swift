@@ -15,6 +15,7 @@ class ToDoListTableViewController: UITableViewController, ToDoCellDelegate {
             todo.isComplete = !todo.isComplete
             todos[indexPath.row] = todo
             tableView.reloadRows(at: [indexPath], with: .automatic)
+            ToDo.saveToDos(todos)
         }
     }
     
@@ -33,6 +34,7 @@ class ToDoListTableViewController: UITableViewController, ToDoCellDelegate {
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
         }
+        ToDo.saveToDos(todos)
     }
     
     // empty array of model objects
@@ -87,6 +89,7 @@ class ToDoListTableViewController: UITableViewController, ToDoCellDelegate {
             // Delete the row from the data source swipe to delete
             todos.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            ToDo.saveToDos(todos)
             
         }
      }
