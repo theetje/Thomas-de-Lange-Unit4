@@ -51,14 +51,19 @@ class addToDoTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dueDatePuckerView.date = Date().addingTimeInterval(24*60*60)
+        if let todo = todo {
+            navigationItem.title = "To-Do"
+            titleTextField.text = todo.title
+            isCompleteButton.isSelected = todo.isComplete
+            dueDatePuckerView.date = todo.dueDate
+            notesTextView.text = todo.notes
+        } else {
+            dueDatePuckerView.date = Date().addingTimeInterval(24*60*60)
+        }
+
         updateDueDateLabel(date: dueDatePuckerView.date)
         updateSaveButtonState()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
